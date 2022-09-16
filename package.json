@@ -24,6 +24,7 @@
         "@emotion/react": "^11.10.0",
         "@emotion/styled": "^11.10.0",
         "@mui/material": "^5.9.3",
+        "antd": "^4.23.1",
         "es6-promise": "^4.2.8",
         "firacode": "^6.2.0",
         "maildev": "^2.0.5",
