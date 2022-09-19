@@ -1,8 +1,8 @@
     export const ROLES = {
         ALL: "all",
-        USER: "user",
+        APPRENANT: "apprenant",
+        FORMATEUR: "formateur",
         ADMIN: "admin",
-        SUPERADMIN: "superadmin",
     };
 export const TOKEN_TYPE = 'Bearer';
 export const USER_SESSION = "USER_SESSION";

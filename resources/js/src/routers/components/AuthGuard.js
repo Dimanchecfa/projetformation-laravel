@@ -11,7 +11,7 @@ export const AuthGuard = ({ children }) => {
         return <>AuthGuard Loading ... </>;
     }
 
-    if (!auth?.user?.token) {
+    if (auth?.user?.token) {
         return <Navigate to={"/login"} state={{ from: location }} replace />;
     }
 

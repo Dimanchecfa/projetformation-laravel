@@ -2,7 +2,7 @@ import { lazy } from "react";
 
 const websiteRoutes = [
   {
-    path: "/",
+    path: "/a",
     component: lazy(() => import(`../../pages/website/login`)),
     layout: "Blank",
   },

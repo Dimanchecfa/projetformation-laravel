@@ -1,5 +1,6 @@
 import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
+import AdminLayout from "../../layouts/admin";
 
 import BlankLayout from "../../layouts/blank";
 
@@ -8,6 +9,7 @@ import { useAuthorized } from "../hook/useAuthorized";
 
 const Layouts = {
   Blank: BlankLayout,
+  Admin : AdminLayout,
 };
 function Render({ roles, layout, page }) {
   const auth = useAuth();
