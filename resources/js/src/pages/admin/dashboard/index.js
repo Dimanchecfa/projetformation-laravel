@@ -1,7 +1,9 @@
+import PageHeaders from "../../../layouts/components/header";
+
 const Dashboard = () => {
     return ( 
         <div className="container">
-            <h1>Dashboard ttt</h1>
+           Dashboard
         </div>
      );
 }

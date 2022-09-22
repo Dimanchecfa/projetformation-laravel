@@ -1,12 +1,46 @@
-import React from "react";
+import React, { Fragment, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useApp from "../../../utilities/hook/useApp";
+import useAuth from "../../../utilities/hook/useAuth";
 
-const Sidebar = () => {
+const Sidebar = ({ menuElements }) => {
     const app = useApp();
+    const auth = useAuth();
+    const [userInfo, setUserInfo] = useState(null);
+    const [menuItems, setMenuItems] = useState([]);
+
+    useEffect(() => {
+        if (auth?.user) {
+            const userRole = auth?.user?.role;
+            setUserInfo(auth?.user);
+            if (userRole) {
+                let _menuItems = menuElements.filter(
+                    (item) =>
+                        item?.permissions?.includes(userRole) ||
+                        item?.permissions?.includes(ROLES.ALL)
+                );
+                setMenuItems(_menuItems);
+            }
+        }
+    }, [menuElements, auth?.user]);
+
+    
+    const link = document.querySelectorAll(".sidebar-item");
+
+    link.forEach((el) => {
+        el.addEventListener("click", () => {
+            link.forEach((el) => el.classList.remove("active"));
+            el.classList.add("active");
+        });
+    });
+    const navigate = useNavigate();
+
     return (
         <>
             <nav
-                class={`${app?.sidenavToggled ? "sidebar-active" : "sidebar"}  bg-primary` }
+                class={`${
+                    app?.sidenavToggled ? "sidebar-active" : "sidebar"
+                }  bg-primary`}
             >
                 <div class="sidebar-content js-simplebar">
                     <a class="sidebar-brand" href="index.html">
@@ -14,122 +48,78 @@ const Sidebar = () => {
                     </a>
 
                     <ul class="sidebar-nav">
-                        <li class="sidebar-header">Pages</li>
-
-                        <li class="sidebar-item active">
-                            <a class="sidebar-link" href="index.html">
-                                <i
-                                    class="align-middle"
-                                    data-feather="sliders"
-                                ></i>{" "}
-                                <span class="align-middle">Dashboard</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="pages-profile.html">
-                                <i class="align-middle" data-feather="user"></i>{" "}
-                                <span class="align-middle">Profile</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="pages-sign-in.html">
-                                <i
-                                    class="align-middle"
-                                    data-feather="log-in"
-                                ></i>{" "}
-                                <span class="align-middle">Sign In</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="pages-sign-up.html">
-                                <i
-                                    class="align-middle"
-                                    data-feather="user-plus"
-                                ></i>{" "}
-                                <span class="align-middle">Sign Up</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="pages-blank.html">
-                                <i class="align-middle" data-feather="book"></i>{" "}
-                                <span class="align-middle">Blank</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-header">Tools & Components</li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="ui-buttons.html">
-                                <i
-                                    class="align-middle"
-                                    data-feather="square"
-                                ></i>{" "}
-                                <span class="align-middle">Buttons</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="ui-forms.html">
-                                <i
-                                    class="align-middle"
-                                    data-feather="check-square"
-                                ></i>{" "}
-                                <span class="align-middle">Forms</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="ui-cards.html">
-                                <i class="align-middle" data-feather="grid"></i>{" "}
-                                <span class="align-middle">Cards</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="ui-typography.html">
-                                <i
-                                    class="align-middle"
-                                    data-feather="align-left"
-                                ></i>{" "}
-                                <span class="align-middle">Typography</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="icons-feather.html">
-                                <i
-                                    class="align-middle"
-                                    data-feather="coffee"
-                                ></i>{" "}
-                                <span class="align-middle">Icons</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-header">Plugins & Addons</li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="charts-chartjs.html">
-                                <i
-                                    class="align-middle"
-                                    data-feather="bar-chart-2"
-                                ></i>{" "}
-                                <span class="align-middle">Charts</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="maps-google.html">
-                                <i class="align-middle" data-feather="map"></i>{" "}
-                                <span class="align-middle">Maps</span>
-                            </a>
-                        </li>
+                        {menuElements.map((item, index) => {
+                            const itemMenus = item?.navItems
+                                ? item?.navItems
+                                : [];
+                            return (
+                                <Fragment key={index}>
+                                    {itemMenus?.length > 0 ? (
+                                        <>
+                                            <li class="sidebar-header">
+                                                {item?.header}
+                                            </li>
+                                            {itemMenus.map(
+                                                (itemMenu, index) => (
+                                                  <>
+                                                  
+                                                  <li
+                                                        class="sidebar-item"
+                                                        key={index}
+                                                        onClick={() =>
+                                                            navigate(
+                                                                itemMenu?.navLink
+                                                            )
+                                                        }
+                                                    >
+                                                        <a
+                                                            class="sidebar-link"
+                                                            href="#"
+                                                        >
+                                                            <i
+                                                                class="align-middle"
+                                                                data-feather="sliders"
+                                                            ></i>{" "}
+                                                            <span class="align-middle">
+                                                                {itemMenu?.title}
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                  </>
+                                                ))
+                                            }
+                                        </>  
+                                           ) : (
+                                                <li
+                                                class="sidebar-item"
+                                                key={index}
+                                                onClick={() =>
+                                                    navigate(
+                                                        item?.navLink
+                                                    )
+                                                }
+                                            >
+                                                <a
+                                                    class="sidebar-link"
+                                                    href="#"
+                                                >
+                                                    <i
+                                                        class="align-middle"
+                                                        data-feather="sliders"
+                                                    ></i>{" "}
+                                                    <span class="align-middle">
+                                                        {item?.title}
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            )
+                                            
+                                       
+                                    }
+                                </Fragment>
+                            );
+                        })}
                     </ul>
-
-                    
                 </div>
             </nav>
         </>

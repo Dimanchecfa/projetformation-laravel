@@ -1,17 +1,19 @@
 import React from "react";
+import { Button, Card, Stack } from "react-bootstrap";
 import { ButtonInfo, ButtonPrimary } from "../../../../components/button";
+import PageHeaders from "../../../../layouts/components/header";
 
-const allTraining = () => {
+const AllProgram = () => {
     return (
         <>
             <div className="row offset-1">
                 <div className="col-3">
                     <h1 class="h3 mb-5">
-                        <strong>Listes des </strong> formations
+                        <strong>Listes des </strong> programmes
                     </h1>
                 </div>
                 <div className="offset-7 col-2">
-                    <ButtonPrimary route="/admin/training/create">
+                    <ButtonPrimary route="/admin/programme/create">
                         Ajouter
                     </ButtonPrimary>
                 </div>
@@ -82,7 +84,6 @@ const allTraining = () => {
                         </div>
                     </div>
                 </div>
-                
                 <div class="col-4 col-md-4 col-sm-12">
                     <div class="card">
                         <img
@@ -112,9 +113,8 @@ const allTraining = () => {
                     </div>
                 </div>
             </div>
-            ;
         </>
     );
 };
 
-export default allTraining;
+export default AllProgram;
