@@ -13,37 +13,6 @@ export const roleToShow = (role) => {
     }
 };
 
-export const cryptoFullName = (crypto) => {
-    switch (crypto) {
-        case "btc":
-            return "Bitcoin";
-        case "eth":
-            return "Ethereum";
-        case "ltc":
-            return "Litecoin";
-        case "bch":
-            return "Bitcoin Cash";
-        case "xrp":
-            return "Ripple";
-        default:
-            return "";
-    }
-};
-
-export const roleToSave = (role) => {
-    switch (role) {
-        case "gestionnaire":
-            return "journalist";
-        case "comptable":
-            return "accounting";
-        case "consultant":
-            return "observer";
-        case "administrateur":
-            return "admin";
-        default:
-            return "user";
-    }
-};
 
 export const getNumberPage = (tables = [], perPage = 10) => {
     const numberPage = tables.length / perPage;

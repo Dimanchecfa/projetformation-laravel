@@ -55,24 +55,8 @@ export const handlingErrors = (error) => {
         }
         return message;
     } else if (error.request) {
-        // The request was made but no response was received
-        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-        // http.ClientRequest in node.js
-        // console.log(error.request);
+
     }
     return error?.message ?? "Oops !! Léger souci.";
 };
 
-export const formatPropValueToString = (error, objectMessage = {}) => {
-    try {
-        const _message = { ...objectMessage };
-        for (const key in error) {
-            if (error.hasOwnProperty(key)) {
-                _message[key] = error[key]?.toString();
-            }
-        }
-        return _message;
-    } catch (error) {
-        return objectMessage;
-    }
-};

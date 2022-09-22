@@ -1,15 +1,15 @@
 import ContainerBackOffice from "../components/container/ContainerBackOffice";
+import { menuAdmin } from "./menu";
 
   
-  const AdminLayout = ( { children }) => {
+  const AdminLayout = (props) => {
 
     return (
         <>
-          <ContainerBackOffice>
-              {children}
-          </ContainerBackOffice>
+          <ContainerBackOffice {...props} menuElements={menuAdmin}/>
         </>
     );
   };
-  
+
   export default AdminLayout;
+  

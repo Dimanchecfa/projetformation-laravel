@@ -160,7 +160,31 @@ const adminRoutes = [
         permissions: [ROLES.ADMIN],
     },
     //-- Session Routes End --//
+   // -- Programme Routes Start --//
+    {
+        path: '/admin/programme',
+        component: lazy(() => import(`../../pages/admin/program/All`)),
+        layout: "Admin",
+        guard: AuthGuard,
+        permissions: [ROLES.ADMIN],
+    },
+    {
+        path: '/admin/programme/create',
+        component: lazy(() => import(`../../pages/admin/program/Add`)),
+        layout: "Admin",
+        guard: AuthGuard,
+        permissions: [ROLES.ADMIN],
+    },
+    {
+        path: '/admin/programme/edit',
+        component: lazy(() => import(`../../pages/admin/program/Edit`)),
+        layout: "Admin",
+        guard: AuthGuard,
+        permissions: [ROLES.ADMIN],
+    },
     
+
+
 
     
 ];
