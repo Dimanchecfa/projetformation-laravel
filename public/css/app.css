@@ -28,7 +28,7 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #3b7ddd;
+  --bs-primary: #4183d7
   --bs-secondary: #6c757d;
   --bs-success: #1cbb8c;
   --bs-info: #17a2b8;
@@ -48,7 +48,7 @@
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: 73, 80, 87;
   --bs-body-bg-rgb: 245, 247, 251;
-  --bs-font-sans-serif: 'Inter', 'Helvetica Neue', Arial, -apple-system,
+  --bs-font-sans-serif: 'open-sans', 'Helvetica Neue', Arial, -apple-system,
     BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
@@ -10815,10 +10815,11 @@ body {
   direction: ltr;
   max-width: 260px;
   min-width: 260px;
+  transition: all 0.35s ease-in-out;
 }
 .sidebar-active {
-  margin-left: -220px;
-  transition: all 0.75s ease-in-out;
+  margin-left: -240px;
+  transition: all 0.45s ease-in-out;
 }
 .sidebar,
 .sidebar-content {
@@ -10974,15 +10975,19 @@ a.sidebar-link svg {
 .table thead,
 .table tr {
   border-color: var(--bs-border-color);
+  font-family:  'open sans', sans-serif;
 }
 .table > tbody > tr > td {
   vertical-align: middle;
+  font-family:  'open sans', sans-serif;
 }
 .text-sm {
   font-size: 0.75rem;
+  font-family:  'open sans', sans-serif;
 }
 .text-lg {
   font-size: 0.925rem;
+  font-family:  'open sans', sans-serif;
 }
 b,
 strong {

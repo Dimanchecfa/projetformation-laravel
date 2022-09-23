@@ -5,12 +5,24 @@ import { ButtonPrimary } from "../../../../components/button";
 const AllSession = () => {
     return (
         <>
+        <div className="row offset-1">
+                <div className="col-3">
+                    <h1 class="h3 mb-5">
+                        <strong>Listes des </strong> seances
+                    </h1>
+                </div>
+                <div className="offset-7 col-2">
+                    <ButtonPrimary route="/admin/programme/create">
+                        Ajouter
+                    </ButtonPrimary>
+                </div>
+            </div>
             <Card body className="offset-1">
             <div class="card-header">
 									<h5 class="card-title">Seances</h5>
 									
 								</div>
-               <Table striped>
+                <Table striped>
                     <thead>
                         <tr>
                             <th className="text-center">#</th>
@@ -69,8 +81,46 @@ const AllSession = () => {
                                 <ButtonPrimary>Supprimer</ButtonPrimary>
                             </td>
                         </tr>
+                        <tr>
+                            <td className="text-center">1</td>
+                            <td className="text-center">Session 1</td>
+                            <td className="text-center">Formation 1</td>
+                            <td className="text-center">Programme 1</td>
+                            <td className="text-center">
+                                Lieu 1
+                            </td>
+                            <td className="text-center">
+                                12/12/2021
+                            </td>
+                            <td className="text-center">
+                                12h
+                            </td>
+                            <td className="text-center">
+                                <ButtonPrimary>Modifier</ButtonPrimary> {" "}
+                                <ButtonPrimary>Supprimer</ButtonPrimary>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td className="text-center">1</td>
+                            <td className="text-center">Session 1</td>
+                            <td className="text-center">Formation 1</td>
+                            <td className="text-center">Programme 1</td>
+                            <td className="text-center">
+                                Lieu 1
+                            </td>
+                            <td className="text-center">
+                                12/12/2021
+                            </td>
+                            <td className="text-center">
+                                12h
+                            </td>
+                            <td className="text-center">
+                                <ButtonPrimary>Modifier</ButtonPrimary> {" "}
+                                <ButtonPrimary>Supprimer</ButtonPrimary>
+                            </td>
+                        </tr>
                     </tbody>
-               </Table>
+                </Table>
             </Card>
         </>
     );

@@ -34,7 +34,7 @@ export const menuAdmin = [
                 id:"seances",
                 icon: () => <IconGroupUser className="side-menu__icon" />,
                 title: "Seances",
-                navLink: "/handlers/seances",
+                navLink: "/admin/session",
                 exact: true,
             
             },
@@ -44,7 +44,6 @@ export const menuAdmin = [
                 title: "Examen",
                 navLink: "/handlers/seances",
                 exact: true,
-            
             },
 
            
@@ -59,7 +58,7 @@ export const menuAdmin = [
                 id: "utilisateurs",
                 icon: () => <IconGroupUser className="side-menu__icon" />,
                 title: "Utilisateurs",
-                navLink: "/admin/utilisateurs",
+                navLink: "/admin/user",
                 exact: true,
             },
            

@@ -13,6 +13,7 @@ class Programme extends Model
         'uuid',
         'libelle',
         'description',
+        'image',
         'promotion',
         
     ];

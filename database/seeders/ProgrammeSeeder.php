@@ -18,8 +18,10 @@ class ProgrammeSeeder extends Seeder
             [
                 'uuid' => '1',
                 'libelle' => 'Cosmetiques' ,
+                'image' => 'images/programmes/programme1.jpg',
                 'description' => 'Formation en cosmetiques' ,
                 'nombre_apprenant' => '15',
+
                 
                 
                 
@@ -28,7 +30,9 @@ class ProgrammeSeeder extends Seeder
                 'uuid' => '2',
                 'libelle' => 'patisserie' ,
                 'description' => 'Formation en Patisserie' ,
+                'image' => 'images/programmes/programme2.jpg',
                 'nombre_apprenant' => '15'
+
                 
             ]
             );

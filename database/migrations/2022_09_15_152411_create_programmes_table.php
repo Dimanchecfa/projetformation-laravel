@@ -18,7 +18,8 @@ class CreateProgrammesTable extends Migration
             $table->string('uuid')->unique();
             $table->string('libelle');
             $table->string('description');
-            $table->string('nombre_apprenant');
+            $table->string('image');
+            $table->string('nombre_apprenant')->default('0');
             $table->string('promotion')->default(date('Y') . '/' . date('Y') + 1);
             $table->timestamps();
         });

@@ -74,3 +74,5 @@ export const ButtonInfo = ({ children, route }) => {
         </button>
     );
 }
+
+
