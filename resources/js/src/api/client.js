@@ -59,4 +59,16 @@ export const handlingErrors = (error) => {
     }
     return error?.message ?? "Oops !! Léger souci.";
 };
-
+export const formatPropValueToString = (error, objectMessage = {}) => {
+    try {
+        const _message = { ...objectMessage };
+        for (const key in error) {
+            if (error.hasOwnProperty(key)) {
+                _message[key] = error[key]?.toString();
+            }
+        }
+        return _message;
+    } catch (error) {
+        return objectMessage;
+    }
+};

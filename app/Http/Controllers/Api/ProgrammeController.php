@@ -35,7 +35,8 @@ class ProgrammeController extends BaseController
     {
         $validate = Validator::make($request->all(), [
             'libelle' => 'required',
-            'description' => 'required',
+                'image' => 'required',
+             'description' => 'required',
         
         ]);
          if($validate->fails()){
@@ -44,7 +45,10 @@ class ProgrammeController extends BaseController
           try{
             $input = $request->all();
             $input['uuid'] = Str::uuid();
-            $programme = Programme::create($input);
+            if($request->hasFile('image')){
+             $input['image'] = $request->file('image')->store('images/programmes');
+            }
+              $programme = Programme::create($input);
             return $this->sendResponse($programme, 'Programme created successfully.');
           }
             catch (\Exception $e) {

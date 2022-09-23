@@ -1,5 +1,6 @@
 // requeste and dispatch to redux
 
+import { reject } from "lodash";
 import HTTP_CLIENT, { handlingErrors } from "./client";
 
 const FILE_HEADERS = {
@@ -312,9 +313,12 @@ export const deleteTraining = (uuid) => {
 
 export const addProgram = (data) => {
   new Promise((resolve, reject) => {
-    HTTP_CLIENT.post("/programme", data)
+    HTTP_CLIENT.post("programme", data , FILE_HEADERS)
+
       .then((response) => {
         resolve(response);
+        const data = resolve(response);
+        console.log(data?.data);
       })
       .catch((error) => {
         const message = handlingErrors(error);
