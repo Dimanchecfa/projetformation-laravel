@@ -19,7 +19,7 @@ class FormationController extends BaseController
     {
         try {
             $formation = Formation::with('programme' , 'formateur')->get();
-            dd($formation);
+            
             return $this->sendResponse($formation, 'Formations retrieved successfully.');
         }
         catch (\Exception $e) {

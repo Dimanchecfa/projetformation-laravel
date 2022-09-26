@@ -19,7 +19,7 @@ class FormateurController extends BaseController
     {
 
         try {
-            $formateurs = Formateur::with('formations' , 'formations.programme' , 'module')->get();
+            $formateurs = Formateur::with('formations' , 'formations.programme' , 'formations.modules')->get();
             return $this->sendResponse($formateurs, 'Formateurs retrieved successfully.');
         }
         catch (\Exception $e) {

@@ -4,6 +4,7 @@ use App\Http\Controllers\AnnonceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Api\ApprenantController;
+use App\Http\Controllers\Api\CoursController;
 use App\Http\Controllers\Api\FormateurController;
 use App\Http\Controllers\Api\FormationController;
 use App\Http\Controllers\Api\ModuleController;
@@ -36,6 +37,7 @@ Route::ApiResource('formation' , FormationController::class);
 Route::ApiResource('programme' , ProgrammeController::class);
 Route::ApiResource('formateur' , FormateurController::class);
 Route::ApiResource('seances' , SeanceController::class);
+Route::ApiResource('cours' , CoursController::class);
 
 Route::post('/signup' , [AuthController::class , 'signup']);
 Route::post('/signin' , [AuthController::class , 'signin']);

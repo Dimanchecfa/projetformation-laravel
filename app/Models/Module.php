@@ -25,8 +25,6 @@ class Module extends Model
     public function formation()
     {
         return $this->belongsTo(Formation::class , 'formation_id');
-
-
     }
 
     public function programme()
@@ -37,7 +35,6 @@ class Module extends Model
     public function cours()
     {
         return $this->hasMany(Cours::class , 'module_id');
-
 
     }
 

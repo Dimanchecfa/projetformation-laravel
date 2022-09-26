@@ -5,7 +5,7 @@ const AppContext = createContext(null);
 
 const AppProvider = ({ children }) => {
     const [mode, setMode] = useState('light');
-    const [sidenavToggled, setSidenavToggled] = useState(false)
+    const [sidenavToggled, setSidenavToggled] = useState(true)
 
     const value = { mode, sidenavToggled, setSidenavToggled, setMode };
 

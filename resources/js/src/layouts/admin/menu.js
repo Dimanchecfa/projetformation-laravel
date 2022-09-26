@@ -1,80 +1,62 @@
-import React from "react";
+
 import { ROLES } from "../../utilities/constant/app.constant";
-import { IconGroupUser } from "../../components/icons";
-
-export const menuAdmin = [
+import { IconQuestion,IconGroupUser} from '../../components/icones';
+const menuAdmin = [
     {
-        id: "dashboard",
-        idon: () => <IconGroupUser />,
-        title: "Dashboard",
-        navLink: "/dashboard",
-        permissions: [ROLES.ADMIN],
-
+        id: 'dashbord',
+        icon: () => <IconQuestion />,
+        title: 'Tableau de bord',
+        exact: true,
+        navLink: '/admins',
+        permissions: [ROLES.ADMIN, ROLES.SUPERADMIN],
     },
     {
-        header: "Gestion pedagogiques",
-        permissions: [ROLES.ADMIN],
+        header: "Gestion des paiements",
+        permissions: [ROLES.ADMIN, ROLES.SUPERADMIN],
         navItems: [
             {
-                id: "programme",
-                icon: () => <IconGroupUser className="side-menu__icon" />,
-                title: "Programme",
-                navLink: "/admin/programme",
+                id: 'payments',
+                icon: () => <IconQuestion className="side-menu__icon" />,
+                title: 'Paiements',
+                navLink: '/client/payments',
                 exact: true,
             },
-            ,{
-                id: "formations" ,
-                icon: () => <IconGroupUser className="side-menu__icon" />,
-                title: "Formations",
-                navLink: "/admin/training",
-                exact: true,
-
-            },
-            {
-                id:"seances",
-                icon: () => <IconGroupUser className="side-menu__icon" />,
-                title: "Seances",
-                navLink: "/admin/session",
-                exact: true,
-
-            },
-            {
-                id:"examen",
-                icon: () => <IconGroupUser className="side-menu__icon" />,
-                title: "Examen",
-                navLink: "/handlers/seances",
-                exact: true,
-            },
-
-
-
         ],
     },
     {
-        header: "Gestion des utilisateurs",
-        permissions: [ROLES.ADMIN],
+        header: "News",
+        permissions: [ROLES.ADMIN, ROLES.SUPERADMIN],
         navItems: [
             {
-                id: "utilisateurs",
-                icon: () => <IconGroupUser className="side-menu__icon" />,
-                title: "Utilisateurs",
-                navLink: "/admin/user",
+                id: 'news',
+                icon: () => <IconQuestion className="side-menu__icon" />,
+                title: 'News',
+                navLink: '/twittes',
                 exact: true,
             },
-        ]
+        ],
+    
     },
     {
-        header: "Gestions des formateurs",
-        permissions: [ROLES.ADMIN , ROLES.FORMATEUR],
+        header: "Edition de compte",
+        permissions: [ROLES.ADMIN, ROLES.SUPERADMIN],
         navItems: [
             {
-                id: "formateurs",
-                icon: () => <IconGroupUser className="side-menu__icon" />,
-                title: "Formateurs",
-                navLink: "/admin/formateurs",
+                id: 'users',
+                icon: () => <IconGroupUser  className="side-menu__icon" />,
+                title: 'Usagers',
+                navLink: '/handlers/account-users',
                 exact: true,
             },
-
-        ]
-    }
+            {
+                id: 'admins',
+                icon: () => <IconGroupUser  className="side-menu__icon" />,
+                title: 'Administrateurs',
+                navLink: '/handlers/account-admins',
+                exact: true,
+            },
+        ],
+    },
 ];
+
+export default menuAdmin;

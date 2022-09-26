@@ -1,5 +1,5 @@
 import ContainerBackOffice from "../components/container/ContainerBackOffice";
-import { menuAdmin } from "./menu";
+import  menuAdmin  from "./menu";
 
   
   const AdminLayout = (props) => {

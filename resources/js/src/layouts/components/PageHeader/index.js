@@ -2,7 +2,7 @@ import Item from "antd/lib/list/Item";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const PageHeader = ({
+const PageHeaders = ({
     title,
     user,
     liste1,
@@ -54,4 +54,4 @@ const PageHeader = ({
     );
 };
 
-export default PageHeader;
+export default PageHeaders;

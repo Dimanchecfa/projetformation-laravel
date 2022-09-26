@@ -3,6 +3,7 @@
         APPRENANT: "apprenant",
         FORMATEUR: "formateur",
         ADMIN: "admin",
+        SUPERADMIN: "admin",
     };
 export const TOKEN_TYPE = 'Bearer';
 export const USER_SESSION = "USER_SESSION";

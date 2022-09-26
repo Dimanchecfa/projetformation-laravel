@@ -34,6 +34,11 @@ class Formation extends Model
         return $this->hasMany(Seance::class , 'formation_id');
        
     }
+    public function modules()
+    {
+        return $this->hasMany(Module::class , 'formation_id');
+       
+    }
 
     public function getRouteKeyName()
     {

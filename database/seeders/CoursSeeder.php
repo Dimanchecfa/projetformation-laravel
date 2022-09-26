@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cours;
 use Illuminate\Database\Seeder;
 
 class CoursSeeder extends Seeder
@@ -20,9 +21,20 @@ class CoursSeeder extends Seeder
                 'formation_id' => '1',
                 'module_id' => '1',
                 'titre' => 'Cours 1',
-                'description' => 'Cours 1',
+                
 
+            ],
+            [
+                'uuid' => '2',
+                'programme_id' => '1',
+                'formation_id' => '1',
+                'module_id' => '1',
+                'titre' => 'Cours 2',
+                
             ]
             );
+            foreach ($seeder as $seed) {
+                Cours::create($seed);
+            }
     }
 }

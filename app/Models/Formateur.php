@@ -33,6 +33,9 @@ class Formateur extends Model
     {
         return $this->belongsToMany(Programme::class);
     }
+    public function modules() {
+        return $this->hasMany(Module::class);
+    }
 
     public function getRouteKeyName()
     {
