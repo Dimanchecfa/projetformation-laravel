@@ -9,7 +9,7 @@ export const menuAdmin = [
         title: "Dashboard",
         navLink: "/dashboard",
         permissions: [ROLES.ADMIN],
-        
+
     },
     {
         header: "Gestion pedagogiques",
@@ -28,7 +28,7 @@ export const menuAdmin = [
                 title: "Formations",
                 navLink: "/admin/training",
                 exact: true,
-            
+
             },
             {
                 id:"seances",
@@ -36,7 +36,7 @@ export const menuAdmin = [
                 title: "Seances",
                 navLink: "/admin/session",
                 exact: true,
-            
+
             },
             {
                 id:"examen",
@@ -46,8 +46,8 @@ export const menuAdmin = [
                 exact: true,
             },
 
-           
-        
+
+
         ],
     },
     {
@@ -61,8 +61,6 @@ export const menuAdmin = [
                 navLink: "/admin/user",
                 exact: true,
             },
-           
-            
         ]
     },
     {

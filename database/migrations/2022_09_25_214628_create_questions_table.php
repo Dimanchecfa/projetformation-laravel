@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateModulesTable extends Migration
+class CreateQuestionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,21 @@ class CreateModulesTable extends Migration
      */
     public function up()
     {
-        Schema::create('modules', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->string('uuid')->unique();
-            $table->string('titre');
-            $table->string('description');
-            $table->string('file');
-            $table->unsignedInteger('programme_id')->nullable();
-            $table->unsignedBigInteger('formation_id');
+            $table->unsignedBigInteger('quiz_id');
+            $table->string('question');
+            $table-> enum('type', ['text', 'radio', 'checkbox']);
             $table->timestamps();
+
+
+
+
+
+
+
+
         });
     }
 
@@ -32,6 +38,6 @@ class CreateModulesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modules');
+        Schema::dropIfExists('questions');
     }
 }

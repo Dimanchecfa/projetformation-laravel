@@ -14,19 +14,35 @@ class Module extends Model
         'titre',
         'description',
         'file',
+        'programme_id',
         'formation_id',
-        'programme_id'
-        
+
+
     ];
 
-  
+
 
     public function formation()
     {
         return $this->belongsTo(Formation::class , 'formation_id');
-        // un module appartient a une formation
-        
+
+
     }
+
+    public function programme()
+    {
+        return $this->belongsTo(Programme::class , 'programme_id');
+    }
+
+    public function cours()
+    {
+        return $this->hasMany(Cours::class , 'module_id');
+
+
+    }
+
+
+
     public function getRouteKeyName()
     {
         return 'uuid';

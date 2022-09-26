@@ -17,17 +17,17 @@ class FormateurController extends BaseController
      */
     public function index()
     {
-     
+
         try {
-            $formateurs = Formateur::with('formations' , 'formations.programme')->get();
+            $formateurs = Formateur::with('formations' , 'formations.programme' , 'module')->get();
             return $this->sendResponse($formateurs, 'Formateurs retrieved successfully.');
         }
         catch (\Exception $e) {
             return $this->sendError('Erreur', $e->getMessage());
         }
-        
-     
-       
+
+
+
     }
 
     /**
@@ -45,10 +45,10 @@ class FormateurController extends BaseController
             'telephone' => 'required',
             'adresse' => 'required',
             'ville' => 'required',
-            
+
         ]);
          if($validate->fails()){
-                return $this->sendError('Validation Error.', $validate->errors());       
+                return $this->sendError('Validation Error.', $validate->errors());
           }
           try{
             $input = $request->all();
@@ -78,7 +78,7 @@ class FormateurController extends BaseController
         }
     }
 
-   
+
     /**
      * Update the specified resource in storage.
      *
@@ -95,10 +95,10 @@ class FormateurController extends BaseController
             'telephone' => 'required',
             'adresse' => 'required',
             'ville' => 'required',
-            
+
         ]);
          if($validate->fails()){
-                return $this->sendError('Validation Error.', $validate->errors());       
+                return $this->sendError('Validation Error.', $validate->errors());
           }
           try{
             $input = $request->all();
@@ -108,9 +108,9 @@ class FormateurController extends BaseController
             catch (\Exception $e) {
                 return $this->sendError('Erreur', $e->getMessage());
             }
-          
-         
-       
+
+
+
     }
 
     /**
@@ -129,5 +129,5 @@ class FormateurController extends BaseController
             return $this->sendError('Erreur', $e->getMessage());
         }
     }
- 
+
 }

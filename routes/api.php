@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\FormateurController;
 use App\Http\Controllers\Api\FormationController;
 use App\Http\Controllers\Api\ModuleController;
 use App\Http\Controllers\Api\ProgrammeController;
+use App\Http\Controllers\Api\SeanceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -34,7 +35,7 @@ Route::ApiResource('module' , ModuleController::class);
 Route::ApiResource('formation' , FormationController::class);
 Route::ApiResource('programme' , ProgrammeController::class);
 Route::ApiResource('formateur' , FormateurController::class);
-
+Route::ApiResource('seances' , SeanceController::class);
 
 Route::post('/signup' , [AuthController::class , 'signup']);
 Route::post('/signin' , [AuthController::class , 'signin']);

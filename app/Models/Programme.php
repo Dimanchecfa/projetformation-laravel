@@ -15,16 +15,17 @@ class Programme extends Model
         'description',
         'image',
         'promotion',
-        
     ];
+
+    
 
     public function formations()
     {
-        return $this->hasMany(Formation::class , 'programme_id');
-      
+        return $this->hasMany(Formation::class, 'programme_id');
     }
-    public function getRouteKeyName() {
+    public function getRouteKeyName()
+    {
         return 'uuid';
     }
-  
+
 }

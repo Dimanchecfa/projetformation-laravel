@@ -17,16 +17,18 @@ class Formateur extends Model
         'telephone',
         'adresse',
         'ville',
+        'discipline',
         
+
     ];
 
-   
+
     public function formations()
     {
         return $this->hasMany(Formation::class , 'formateur_id');
-        
+
     }
- 
+
     public function programme()
     {
         return $this->belongsToMany(Programme::class);

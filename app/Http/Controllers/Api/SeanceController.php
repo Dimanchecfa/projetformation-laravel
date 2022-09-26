@@ -18,7 +18,7 @@ class SeanceController extends BaseController
     public function index()
     {
         try {
-            $seance = Seance::with('formation')->get();
+            $seance = Seance::with('formation' , 'module')->get();
             return $this->sendResponse($seance, 'Seances retrieved successfully.');
         }
         catch (\Exception $e) {
@@ -41,7 +41,7 @@ class SeanceController extends BaseController
             'formation_id' => 'required'
         ]);
         if($validate->fails()){
-            return $this->sendError('Validation Error.', $validate->errors());       
+            return $this->sendError('Validation Error.', $validate->errors());
         }
         try {
             $input = $request->all();
@@ -91,7 +91,7 @@ class SeanceController extends BaseController
             'formation_id' => 'required'
         ]);
         if($validate->fails()){
-            return $this->sendError('Validation Error.', $validate->errors());       
+            return $this->sendError('Validation Error.', $validate->errors());
         }
         try {
             $input = $request->all();
